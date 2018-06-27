@@ -1,8 +1,8 @@
 import actionTypes from "./types";
 
-const receivePosts = res => ({
+const receivePosts = value => ({
     type: actionTypes.RECEIVE_POSTS,
-    posts: [].slice.call(res)
+    value
 });
 
 const increaseCount = action => ({
@@ -14,16 +14,19 @@ const searchPost = value => ({
     value
 });
 
-const startFetchingPosts = state => dispatch => {
-    dispatch({ type: actionTypes.REQUEST_POSTS });
 
-    return fetch("https://jsonplaceholder.typicode.com/posts")
+const fetchingPosts = postId => dispatch => {
+    dispatch({ type: actionTypes.REQUEST_POSTS });
+    const API = (postId !== undefined) ? ('https://jsonplaceholder.typicode.com/posts/' + postId) :
+                                         'https://jsonplaceholder.typicode.com/posts';
+
+    return fetch(API)
             .then(res => res.json())
             .then(res => dispatch(receivePosts(res)));
 }
 
 export default {
-    startFetchingPosts,
+    fetchingPosts,
     increaseCount,
     searchPost
 };

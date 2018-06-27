@@ -1,14 +1,17 @@
 import React from 'react';
-import PostList from './Components/PostList/Container';
-import Button from './Components/Button/Container';
-import Search from './Components/Search/Container'
+import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import store from './modules/store'
+import Routes from './Components/Routes/Container';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 const App = () => {
-  return  <React.Fragment>
-            <Search />
-            <PostList />
-            <Button />
-          </React.Fragment>
+  return <Provider store={store}>
+              <Router>
+                 <Routes />
+              </Router>
+          </Provider>
 };
+
 
 export default App;

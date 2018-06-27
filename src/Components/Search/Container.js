@@ -4,7 +4,7 @@ import Component from './Component';
 import actions from '../../modules/posts/actions';
 
 const mapStateToProps = state => ({
-    text: state.search
+    text: state.posts.search
 });
 
 const mapDispatchToProps = dispatch => ({
