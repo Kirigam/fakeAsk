@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Post = ({userPost}) => {
+const Post = ({post}) => {
     return <React.Fragment>
-            <h1>{userPost.title}</h1>
-               <p>{userPost.body}</p> 
+            <h1>{post.title}</h1>
+               <p>{post.body}</p> 
             </React.Fragment>
 };
 

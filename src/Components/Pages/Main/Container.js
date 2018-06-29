@@ -1,14 +1,27 @@
 import React from 'react';
-import PostList from '../../PostList/Container';
-import Button from '../../Button/Container';
-import Search from '../../Search/Container'
+import { connect } from 'react-redux';
+import { compose, lifecycle, branch, renderComponent } from 'recompose';
+import Component from './Component';
+import actions from '../../../modules/posts/actions';
+import { Link } from 'react-router-dom';
+import Loader from '../../Loader/Component';
 
-const Main = () => {
-  return  <React.Fragment>
-            <Search />
-            <PostList />
-            <Button />
-          </React.Fragment>
-};
+const mapStateToProps = state => ({isFetching: state.posts.isFetching});
 
-export default Main;
+const enhancer = compose(
+    connect(mapStateToProps),
+    lifecycle({
+        componentDidMount() {
+            const { dispatch } = this.props;
+            
+            dispatch(actions.fetchingPosts());
+        }
+    }),
+    branch(
+        ({isFetching}) => isFetching,
+        renderComponent(Loader)
+    )
+     
+);
+
+export default enhancer(Component);

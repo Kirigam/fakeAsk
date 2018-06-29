@@ -1,13 +1,13 @@
 import React from 'react';
-import Post from '../../Post/Component';
-import Comments from '../../Comments/Component';
+import Post from '../../Post/Container';
+import Comments from '../../Comments/Container';
 
 const UserPost = ({post, comments}) => {
     
     return <React.Fragment>
-               <Post userPost={post} /> 
+               <Post /> 
                <h3>Comments:</h3>
-               <Comments commentsList={comments} />
+               <Comments />
            </React.Fragment>
 };
 

@@ -1,14 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { compose, lifecycle, shouldUpdate, branch, renderComponent } from 'recompose';
+import { compose, shouldUpdate } from 'recompose';
 import Component from './Component';
 import actions from '../../modules/posts/actions';
 import { Link } from 'react-router-dom';
 import Loader from '../Loader/Component';
 
 const mapStateToProps = (state) => ({
-    posts: createPostList(state), 
-    isFetching: state.posts.isFetching
+    posts: createPostList(state)
 });
 
 const createPostList = (state) => {
@@ -36,17 +35,6 @@ const createPostList = (state) => {
 
 const enhancer = compose(
     connect(mapStateToProps),
-    lifecycle({
-        componentDidMount() {
-            const { dispatch } = this.props;
-            
-            dispatch(actions.fetchingPosts());
-        }
-    }),
-    branch(
-        ({isFetching}) => isFetching,
-        renderComponent(Loader)
-    ),
     shouldUpdate((props ,newProps) => {
         if((props.posts.length && newProps.posts.length) > 0)
             return newProps.posts.map((item, i) => (item === props.posts[i]) ?  false : true);
