@@ -1,0 +1,19 @@
+@font-face {
+	font-family: "RobotoRegular";
+	src: url("./RobotoRegular/RobotoRegular.eot");
+	src: url("./RobotoRegular/RobotoRegular.eot?#iefix")format("embedded-opentype"),
+	url("./RobotoRegular/RobotoRegular.woff") format("woff"),
+	url("./RobotoRegular/RobotoRegular.ttf") format("truetype");
+	font-style: normal;
+	font-weight: normal;
+}	
+	
+@font-face {
+    font-family: "NautilusPompiliusRegular";
+    src: url("./NautilusPompiliusRegular/NautilusPompiliusRegular.eot");
+    src: url("./NautilusPompiliusRegular/NautilusPompiliusRegular.eot?#iefix")format("embedded-opentype"),
+    url("./NautilusPompiliusRegular/NautilusPompiliusRegular.woff") format("woff"),
+    url("./NautilusPompiliusRegular/NautilusPompiliusRegular.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}

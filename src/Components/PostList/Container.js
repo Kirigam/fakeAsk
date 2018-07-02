@@ -2,26 +2,19 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { compose, shouldUpdate } from 'recompose';
 import Component from './Component';
-import actions from '../../modules/posts/actions';
-import { Link } from 'react-router-dom';
-import Loader from '../Loader/Component';
 
 const mapStateToProps = (state) => ({
-    posts: createPostList(state)
+    posts: (state.posts.items.length !== undefined) ? createPostList(state) : {}
 });
 
 const createPostList = (state) => {
-    const postList = state.posts.items.map(item => {
-        return {title: <Link to={{
-            pathname: '/posts/' + item.id
-        }}>{item.title}</Link>, id: item.id}
-    });
+    const postList = state.posts.items;
     
     if(state.posts.search !== '' && postList !== undefined) {
         const pattern = new RegExp(state.posts.search)    
         
         const filtredPosts = postList.filter(item => {
-            if(item.title.props.children.match(pattern)) {
+            if(item.title.match(pattern)) {
               return item;
             }
           });
@@ -36,7 +29,7 @@ const createPostList = (state) => {
 const enhancer = compose(
     connect(mapStateToProps),
     shouldUpdate((props ,newProps) => {
-        if((props.posts.length && newProps.posts.length) > 0)
+        if(props.posts.length > 0 && newProps.posts.length > 0)
             return newProps.posts.map((item, i) => (item === props.posts[i]) ?  false : true);
         else
             return true;
