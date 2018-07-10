@@ -1,0 +1,7 @@
+const REQUEST_USER = "REQUEST_USER",
+      RECEIVE_USER = "RECEIVE_USER";
+
+export default {
+    REQUEST_USER,
+    RECEIVE_USER
+};

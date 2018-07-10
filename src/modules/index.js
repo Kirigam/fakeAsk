@@ -5,7 +5,8 @@ import user from './user/reducers';
 
 const reducer = combineReducers({
     posts,
-    comments
+    comments,
+    user
 });
 
 export default reducer;

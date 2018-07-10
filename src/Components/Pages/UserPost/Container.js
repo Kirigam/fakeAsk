@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { compose, lifecycle, branch, renderComponent } from 'recompose';
 import Component from './Component';
 import postsActions from '../../../modules/posts/actions';
-import commentsActions from '../../../modules/comments/actions';
 import { Link } from 'react-router-dom';
 import Loader from '../../Loader/Component';
 import NotFound from '../../NotFound/Component';
@@ -23,8 +22,9 @@ const checkObject = (obj) => {
 
 const mapStateToProps = state => ({
             notFound: (checkObject(state.posts.items) && (state.posts.items.length === undefined)) ? true : false,
-            isFetching: state.posts.isFetching,
-            usersPost: state.posts.items
+            isFetchingPosts: state.posts.isFetching,
+            isFetchingUser: state.user.isFetching,
+            usersPost: state.posts.items,
 });
 
 const enhancer = compose(
@@ -35,11 +35,8 @@ const enhancer = compose(
             const postId = getPostId();
 
             if(this.props.usersPost.length === 0) {
-                
-                dispatch(postsActions.fetchingPosts(postId));
-                return dispatch(commentsActions.fetchingComments(postId));
-            } else
-                return dispatch(commentsActions.fetchingComments(postId));
+                return dispatch(postsActions.fetchingPosts(postId));
+            }
         }
     }),
     branch(
@@ -47,7 +44,7 @@ const enhancer = compose(
         renderComponent(NotFound)
     ),
     branch(
-        ({isFetching}) => isFetching,
+        ({isFetchingPosts, isFetchingUser}) => ((isFetchingPosts === true) || (isFetchingUser === true)) ? true: false,
         renderComponent(Loader)
     )
 );

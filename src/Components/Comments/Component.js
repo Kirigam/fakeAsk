@@ -3,11 +3,7 @@ import { Col, Media } from 'reactstrap';
 import image from '../../img/user.jpg';
 
 const Comments = ({commentsList}) => {
-    console.log(commentsList);
-
-    
-    return <Col>
-    <Media list>
+    return <Col><Media list>
             {commentsList.map(item => <Media key={item.id} className='mt-2'>
                     <Media>
                         <Media style={{width: '56px', heigth: '56px'}} src={image} alt='user' />
@@ -18,7 +14,7 @@ const Comments = ({commentsList}) => {
                     </Media>
                 </Media>
             )}
-            </Media></Col>
+        </Media></Col>
 };
 
 export default Comments;

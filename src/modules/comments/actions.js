@@ -15,6 +15,4 @@ const fetchingComments = commentToPost => dispatch => {
             .then(res => dispatch(receiveComments(res)));
 }
 
-export default {
-    fetchingComments
-};
+export default fetchingComments;

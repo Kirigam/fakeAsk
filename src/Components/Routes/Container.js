@@ -4,6 +4,7 @@ import Main from '../Pages/Main/Container';
 import UserPost from '../Pages/UserPost/Container';
 import NotFound from '../NotFound/Component';
 import Header from '../Header/Component';
+import User from '../Pages/UserInfo/Container';
 import { Container, Row } from 'reactstrap';
 
 const Routes = () => {
@@ -12,6 +13,7 @@ const Routes = () => {
             <Switch>
               <Route exact path='/' component={Main} />
               <Route path='/posts' component={UserPost} />
+              <Route path='/user' component={User} />
               <Route component={NotFound} />
             </Switch>
           </React.Fragment>

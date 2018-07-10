@@ -3,7 +3,7 @@ import Post from '../../Post/Container';
 import Comments from '../../Comments/Container';
 import { Container, Row, Col } from 'reactstrap';
 
-const UserPost = ({post, comments}) => {
+const UserPost = () => {
     
     return <Container>
                 <Row>
