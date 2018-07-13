@@ -1,9 +1,7 @@
-import React from 'react';
 import { connect } from 'react-redux';
 import { compose, lifecycle, branch, renderComponent } from 'recompose';
 import Component from './Component';
 import postsActions from '../../../modules/posts/actions';
-import { Link } from 'react-router-dom';
 import Loader from '../../Loader/Component';
 import NotFound from '../../NotFound/Component';
 

@@ -1,5 +1,4 @@
-import React from 'react';
-import { Connect, connect } from 'react-redux';
+import { connect } from 'react-redux';
 import { compose, lifecycle, branch, renderComponent } from 'recompose';
 import action from '../../../modules/user/actions';
 import Loader from '../../Loader/Component';

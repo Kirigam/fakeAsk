@@ -1,7 +1,6 @@
 import React from 'react';
 import PostList from '../../PostList/Container';
 import Button from '../../Button/Container';
-import Search from '../../Search/Container';
 import { Container, Row } from 'reactstrap';
 
 const Main = () => {

@@ -1,11 +1,10 @@
-import React from 'react';
 import stylde from 'styled-components';
 
 
 
 const Loader = stylde.div`
-    border: 16px solid #807eeb;
-    border-top: 16px solid #3498db;
+    border: 16px solid #fff;
+    border-top: 16px solid #807eeb;
     border-radius: 50%;
     width: 60px;
     margin: 15% auto;

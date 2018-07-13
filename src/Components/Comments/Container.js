@@ -1,4 +1,3 @@
-import React from 'react';
 import { connect } from 'react-redux';
 import { compose, branch, renderComponent, lifecycle } from 'recompose';
 import commentsActions from '../../modules/comments/actions';

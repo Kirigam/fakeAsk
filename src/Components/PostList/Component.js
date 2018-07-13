@@ -1,5 +1,5 @@
 import React from 'react';
-import {ListGroup, ListGroupItem, Col } from 'reactstrap';
+import {ListGroup, Col } from 'reactstrap';
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 

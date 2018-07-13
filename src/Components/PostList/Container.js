@@ -1,4 +1,3 @@
-import React from 'react';
 import { connect } from 'react-redux';
 import { compose, shouldUpdate } from 'recompose';
 import Component from './Component';
@@ -13,11 +12,7 @@ const createPostList = (state) => {
     if(state.posts.search !== '' && postList !== undefined) {
         const pattern = new RegExp(state.posts.search)    
         
-        const filtredPosts = postList.filter(item => {
-            if(item.title.match(pattern)) {
-              return item;
-            }
-          });
+        const filtredPosts = postList.filter(item => item.title.match(pattern));
 
         return filtredPosts.slice(0, state.posts.count);
     }

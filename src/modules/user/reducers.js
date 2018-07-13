@@ -1,5 +1,4 @@
 import actionTypes from './types';
-import actions from './actions';
 
 const user = (state={
         info: {},

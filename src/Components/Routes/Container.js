@@ -5,7 +5,6 @@ import UserPost from '../Pages/UserPost/Container';
 import NotFound from '../NotFound/Component';
 import Header from '../Header/Component';
 import User from '../Pages/UserInfo/Container';
-import { Container, Row } from 'reactstrap';
 
 const Routes = () => {
    return <React.Fragment>

@@ -1,4 +1,3 @@
-import React from 'react';
 import { connect } from 'react-redux';
 import Component from './Component';
 import userAction from '../../modules/user/actions';
@@ -12,9 +11,7 @@ const mapStateToProps = state => {
     let userPost = {};
     
     if(state.posts.items.length > 0) {
-       state.posts.items.forEach(item => {
-            if(item.id === postId) return userPost = item;
-        });
+        userPost = state.posts.items.find(item => (item.id === postId));
         
         return {
             post: (state.posts.items.id !== undefined) ? state.posts.items : userPost,
