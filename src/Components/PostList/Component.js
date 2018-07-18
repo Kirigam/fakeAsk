@@ -12,8 +12,8 @@ const PostGroup = styled(ListGroup)`
     }
 `;
 
-const PostsList = ({posts}) => {
-    return <Col lg='8'> 
+const PostsList = ({posts, colValue}) => {
+    return <Col lg={colValue}> 
                 {(posts.length > 0) ? 
                     <PostGroup style={{ margin: '25px 0 25px 0'}}>
                         {posts.map(item => 

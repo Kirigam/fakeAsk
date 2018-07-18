@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import { compose, lifecycle, branch, renderComponent } from 'recompose';
-import action from '../../../modules/user/actions';
+import userAction from '../../../modules/user/actions';
+import postsActions from '../../../modules/posts/actions';
 import Loader from '../../Loader/Component';
 import NotFound from '../../NotFound/Component';
 import Component from './Component';
@@ -8,7 +9,8 @@ import Component from './Component';
 const mapStateToProps = state => ({
     user: state.user.info,
     isFetching: state.user.isFetching,
-    notFound: (state.user.info.id === undefined) ? true : false
+    notFound: (state.user.info.id === undefined) ? true : false,
+    posts: state.posts.items
 });
 
 const getUserId = () => { 
@@ -20,11 +22,18 @@ const enhancer = compose(
     connect(mapStateToProps),
     lifecycle({
         componentDidMount() {
-            const { dispatch, notFound } = this.props;
+            const { dispatch, notFound, posts } = this.props;
             const userId = getUserId();
             
             if(notFound) {
-             return dispatch(action(userId));
+                dispatch(userAction(userId));
+            }
+            console.log(posts.length);
+            
+            if(posts.length < 1) {
+                console.log(true);
+                
+                return dispatch(postsActions.fetchingPosts('?userId=' + userId))
             }
         }
     }),

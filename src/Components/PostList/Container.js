@@ -3,7 +3,8 @@ import { compose, shouldUpdate } from 'recompose';
 import Component from './Component';
 
 const mapStateToProps = (state) => ({
-    posts: (state.posts.items.length !== undefined) ? createPostList(state) : {}
+    posts: (state.posts.items.length !== undefined) ? createPostList(state) : {},
+    colValue: '8'
 });
 
 const createPostList = (state) => {
