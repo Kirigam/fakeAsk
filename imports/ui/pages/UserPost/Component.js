@@ -1,6 +1,6 @@
 import React from 'react';
-import Post from '../../Post/Container';
-import Comments from '../../Comments/Container';
+import Post from '../../components/Post/Container';
+import Comments from '../../components/Comments/Container';
 import { Container, Row, Col } from 'reactstrap';
 
 const UserPost = () => {

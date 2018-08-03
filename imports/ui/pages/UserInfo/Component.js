@@ -1,7 +1,7 @@
 import React from 'react';
-import User from '../../User/Container';
+import User from '../../components/User/Container';
 import { Container, Row } from 'reactstrap';
-import UserPostsList from '../../UserPostsList/Container';
+import UserPostsList from '../../components/UserPostsList/Container';
 
 const UserInfo = () => {
     return <Container>

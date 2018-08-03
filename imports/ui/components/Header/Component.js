@@ -1,7 +1,6 @@
 import React from 'react';
 import { Container, Navbar } from 'reactstrap';
 import { NavLink } from 'react-router-dom';
-import '../../fonts/fonts.css';
 import Search from '../Search/Container';
 
 

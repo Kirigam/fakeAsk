@@ -4,7 +4,7 @@ import { Col, Row,
          Nav, NavItem, NavLink, 
          Modal, ModalHeader, ModalBody } from 'reactstrap';
 import classnames from 'classnames';
-import avatar from '../../img/user.jpg';
+//import avatar from '../../../../public/images/user.jpg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMap } from '@fortawesome/free-solid-svg-icons';
 import GoogleMaps from '../GoogleMaps/Container';
@@ -25,7 +25,8 @@ const UserInfo = ({user, toggleTab, activeTab, toggleModal, activeModal}) => {
     };
     return <Row className='justify-content-center mt-3'>
             <Col md='6' xl='4'> 
-                <img src={avatar} alt='avatar' className='img-thumbnail rounded mx-auto d-block' /> 
+                <img src='/images/user.jpg' alt='avatar' 
+                className='img-thumbnail rounded mx-auto d-block' /> 
             </Col>
             <Col md='6'>
                 <p><b>Name:</b> {user.name}</p>
@@ -65,7 +66,8 @@ const UserInfo = ({user, toggleTab, activeTab, toggleModal, activeModal}) => {
                         <Modal isOpen={activeModal} toggle={toggleModal}>
                             <ModalHeader toggle={toggleModal}>Location {user.username}</ModalHeader>
                             
-                            <ModalBody><GoogleMaps markerPosition={userLocation} isMarkerShown={true}/></ModalBody>
+                            <ModalBody><GoogleMaps markerPosition={userLocation} isMarkerShown={true}/>
+                            </ModalBody>
                             
                         </Modal>
                     </TabPane>

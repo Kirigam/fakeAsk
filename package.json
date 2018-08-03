@@ -1,31 +1,40 @@
 {
   "name": "fakeAsk",
-  "version": "0.1.0",
+  "version": "2.0.0",
   "private": true,
+  "scripts": {
+    "start": "meteor run",
+    "test": "meteor test --once --driver-package meteortesting:mocha",
+    "test-app": "TEST_WATCH=1 meteor test --full-app --driver-package meteortesting:mocha",
+    "visualize": "meteor --production --extra-packages bundle-visualizer"
+  },
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.0-14",
-    "@fortawesome/free-solid-svg-icons": "^5.1.0-11",
+    "@babel/runtime": "^7.0.0-beta.51",
+    "@fortawesome/fontawesome-svg-core": "^1.2.2",
+    "@fortawesome/free-solid-svg-icons": "^5.2.0",
     "@fortawesome/react-fontawesome": "^0.1.0",
     "bootstrap": "^4.1.1",
-    "package.json": "^2.0.1",
+    "history": "^4.7.2",
+    "meteor-node-stubs": "^0.4.1",
     "react": "^16.4.1",
-    "react-bootstrap": "^0.32.1",
     "react-dom": "^16.4.1",
     "react-google-maps": "^9.4.5",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "1.1.4",
     "reactstrap": "^6.2.0",
     "recompose": "^0.27.1",
     "redux": "^4.0.0",
-    "redux-devtools-extension": "^2.13.4",
     "redux-thunk": "^2.3.0",
     "styled-components": "^3.3.3"
   },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+  "meteor": {
+    "mainModule": {
+      "client": "client/main.js",
+      "server": "server/main.js"
+    },
+    "testModule": "tests/main.js"
+  },
+  "devDependencies": {
+    "redux-devtools-extension": "^2.13.4"
   }
 }

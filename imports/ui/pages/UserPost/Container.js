@@ -1,9 +1,9 @@
 import { connect } from 'react-redux';
 import { compose, lifecycle, branch, renderComponent } from 'recompose';
 import Component from './Component';
-import postsActions from '../../../modules/posts/actions';
-import Loader from '../../Loader/Component';
-import NotFound from '../../NotFound/Component';
+import postsActions from '../../modules/posts/actions';
+import Loader from '../../components/Loader/Component';
+import NotFound from '../../components/NotFound/Component';
 
 
 const getPostId = () => { 

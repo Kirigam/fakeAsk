@@ -1,9 +1,9 @@
 import { connect } from 'react-redux';
 import { compose, lifecycle, branch, renderComponent } from 'recompose';
-import userAction from '../../../modules/user/actions';
-import postsActions from '../../../modules/posts/actions';
-import Loader from '../../Loader/Component';
-import NotFound from '../../NotFound/Component';
+import userAction from '../../modules/user/actions';
+import postsActions from '../../modules/posts/actions';
+import Loader from '../../components/Loader/Component';
+import NotFound from '../../components/NotFound/Component';
 import Component from './Component';
 
 const mapStateToProps = state => ({
@@ -28,11 +28,8 @@ const enhancer = compose(
             if(notFound) {
                 dispatch(userAction(userId));
             }
-            console.log(posts.length);
             
             if(posts.length < 1) {
-                console.log(true);
-                
                 return dispatch(postsActions.fetchingPosts('?userId=' + userId))
             }
         }
