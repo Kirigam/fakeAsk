@@ -1,10 +1,9 @@
 import React from 'react';
-import { Col, Row, 
-         TabContent, TabPane, 
-         Nav, NavItem, NavLink, 
+import { Col, Row,
+         TabContent, TabPane,
+         Nav, NavItem, NavLink,
          Modal, ModalHeader, ModalBody } from 'reactstrap';
 import classnames from 'classnames';
-//import avatar from '../../../../public/images/user.jpg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMap } from '@fortawesome/free-solid-svg-icons';
 import GoogleMaps from '../GoogleMaps/Container';
@@ -20,13 +19,13 @@ const I = styled.i`
 
 const UserInfo = ({user, toggleTab, activeTab, toggleModal, activeModal}) => {
     const userLocation = {
-        lat: +user.address.geo.lat, 
+        lat: +user.address.geo.lat,
         lng: +user.address.geo.lng
     };
     return <Row className='justify-content-center mt-3'>
-            <Col md='6' xl='4'> 
-                <img src='/images/user.jpg' alt='avatar' 
-                className='img-thumbnail rounded mx-auto d-block' /> 
+            <Col md='6' xl='4'>
+                <img src='/images/user.jpg' alt='avatar'
+                className='img-thumbnail rounded mx-auto d-block' />
             </Col>
             <Col md='6'>
                 <p><b>Name:</b> {user.name}</p>
@@ -36,17 +35,17 @@ const UserInfo = ({user, toggleTab, activeTab, toggleModal, activeModal}) => {
                 <p><b>Website:</b> {user.website}</p>
                 <Nav tabs>
                     <NavItem>
-                        <NavLink className={classnames({ active: activeTab === '1'})} 
+                        <NavLink className={classnames({ active: activeTab === '1'})}
                             onClick={() => toggleTab('1')} style={{cursor: 'pointer'}}>
                             Company
                         </NavLink>
                     </NavItem>
                     <NavItem>
-                        <NavLink className={classnames({ active: activeTab === '2'})} 
+                        <NavLink className={classnames({ active: activeTab === '2'})}
                             onClick={() => toggleTab('2')} style={{cursor: 'pointer'}}>
                             Address
                         </NavLink>
-                    </NavItem>    
+                    </NavItem>
                 </Nav>
                 <TabContent activeTab={activeTab} className='mt-2'>
                     <TabPane tabId="1">
@@ -59,16 +58,24 @@ const UserInfo = ({user, toggleTab, activeTab, toggleModal, activeModal}) => {
                         <p><b>Suite:</b> {user.address.suite}</p>
                         <p><b>City:</b> {user.address.city}</p>
                         <p><b>Zipcode:</b> {user.address.zipcode}</p>
-                        <p><b>Show on map:</b> <I className='ml-2'>
-                            <FontAwesomeIcon style={{fontSize: '1.3em'}} icon={faMap} 
-                            onClick={toggleModal}/></I></p>
-                        
+                        <p><b>Show on map:</b>
+                          <I className='ml-2'>
+                            <FontAwesomeIcon style={{fontSize: '1.3em'}}
+                            icon={faMap}
+                            onClick={toggleModal}/>
+                          </I>
+                        </p>
+
                         <Modal isOpen={activeModal} toggle={toggleModal}>
-                            <ModalHeader toggle={toggleModal}>Location {user.username}</ModalHeader>
-                            
-                            <ModalBody><GoogleMaps markerPosition={userLocation} isMarkerShown={true}/>
+                            <ModalHeader toggle={toggleModal}>
+                              Location {user.username}
+                            </ModalHeader>
+
+                            <ModalBody>
+                              <GoogleMaps markerPosition={userLocation}
+                              isMarkerShown={true}/>
                             </ModalBody>
-                            
+
                         </Modal>
                     </TabPane>
                 </TabContent>

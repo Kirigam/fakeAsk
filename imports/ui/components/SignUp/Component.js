@@ -1,22 +1,25 @@
 import React from 'react';
 import { Row, Form, FormGroup } from 'reactstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Button from '../Button/Component';
 import PasswordInput from '../PasswordInput/Container';
 
-const SignIn = () => {
+const SignUp = () => {
   return <Form>
           <FormGroup>
             <input className='authorizationInput'
             type='email' placeholder='Email'/>
           </FormGroup>
-          <PasswordInput text='Password' />
           <FormGroup>
-            <a href='#' className='btn btn-link'>Forget password ?</a>
+            <input className='authorizationInput'
+            type='text' placeholder='Username'/>
           </FormGroup>
+          <PasswordInput text='Password' />
+          <PasswordInput text='Confirm password' />
           <Row className='justify-content-center'>
-            <Button text='SIGN IN' style={{width: '300px'}} />
+            <Button text='SIGN UP' style={{width: '300px'}} />
           </Row>
         </Form>
 };
 
-export default SignIn;
+export default SignUp;

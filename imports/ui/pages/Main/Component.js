@@ -1,7 +1,7 @@
 import React from 'react';
 import PostList from '../../components/PostList/Container';
 import Button from '../../components/Button/Container';
-import SiginIn from '../../components/SignIn/Component';
+import AuthorizationModalForm from '../../components/AuthorizationModalForm/Container';
 import { Container, Row } from 'reactstrap';
 
 const Main = () => {
@@ -13,7 +13,7 @@ const Main = () => {
               <Button />
             </Row>
             <Row>
-              <SiginIn />
+              <AuthorizationModalForm />
             </Row>
           </Container>
 };

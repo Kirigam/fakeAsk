@@ -6,8 +6,8 @@
 	url("../public/fonts/RobotoRegular/RobotoRegular.ttf") format("truetype");
 	font-style: normal;
 	font-weight: normal;
-}	
-	
+}
+
 @font-face {
     font-family: "NautilusPompiliusRegular";
     src: url("/fonts/NautilusPompiliusRegular/NautilusPompiliusRegular.eot");
@@ -16,4 +16,24 @@
     url("/fonts/NautilusPompiliusRegular/NautilusPompiliusRegular.ttf") format("truetype");
     font-style: normal;
     font-weight: normal;
+}
+
+body {
+	background-color: #dbe2ec !important;
+}
+
+.active {
+	color: rgb(128, 126, 235);
+}
+
+.authorizationInput {
+	margin: 10px;
+  width: 400px;
+  border: none;
+  outline: none;
+  border-bottom: 2px solid #ccc;
+  font-size: 20px;
+}
+.authorizationInput:focus {
+	border-bottom: 2px solid rgb(128, 126, 235);
 }
