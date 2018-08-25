@@ -8,7 +8,7 @@ const enhacer = compose(
         password: '',
       }),
       {
-        onChangePassword: ({password}) => (value) => ({ password: value })
+        onChangePassword: ({password}) => (value) =>  ({password: value})
       }
     ),
     withStateHandlers(
@@ -16,8 +16,8 @@ const enhacer = compose(
           isPasswordVisible: initial,
         }),
         {
-            onClickPasswordVisible: ({isPasswordVisible}) =>
-              () => ({ isPasswordVisible: !isPasswordVisible })
+          onClickPasswordVisible: ({isPasswordVisible}) =>
+            () => ({ isPasswordVisible: !isPasswordVisible })
         }
       )
 );

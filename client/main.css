@@ -25,6 +25,9 @@ body {
 .active {
 	color: rgb(128, 126, 235);
 }
+.formError {
+	border-bottom: 2px solid red;
+}
 
 .authorizationInput {
 	margin: 10px;
@@ -36,4 +39,8 @@ body {
 }
 .authorizationInput:focus {
 	border-bottom: 2px solid rgb(128, 126, 235);
+}
+.inputError p {
+	width: 400px;
+	color: rgb(280, 0, 90);
 }

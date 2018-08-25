@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormGroup } from 'reactstrap';
+import { FormGroup, Row } from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye } from '@fortawesome/free-solid-svg-icons';
 import styled from 'styled-components';
@@ -16,14 +16,17 @@ const I = styled.i`
   }
 `;
 
-const PasswordInput = ({ text, password, isPasswordVisible, onChangePassword,
+const PasswordInput = ({ text, name, password, isPasswordVisible, onChangePassword,
                          onClickPasswordVisible  }) => {
 
   const passwordType = (isPasswordVisible) ? 'text' : 'password';
 
   return <FormGroup>
+          <Row className='inputError justify-content-center' hidden={true}>
+            <p></p>
+          </Row>
           <input type={passwordType} placeholder={text} value={password}
-            className='authorizationInput'
+            className='authorizationInput' name={name}
             onChange={ (e) => onChangePassword(e.target.value) } />
           <I>
             <FontAwesomeIcon icon={faEye} onClick={(e) => {
