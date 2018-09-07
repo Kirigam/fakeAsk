@@ -7,6 +7,7 @@ import PasswordInput from '../PasswordInput/Container';
 const onS = (e) => {
   e.preventDefault();
   const form = e.target;
+  const pattern = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
 
   const formData = Object.values(form).reduce((acc, current) => {
     const key = current.name;
@@ -25,6 +26,7 @@ const onS = (e) => {
     form[key].style.borderColor = '#ccc';
 
     const errMessage = form[key].parentNode.firstElementChild;
+    console.log(errMessage);
     if(formData[key] === '' ) {
       form[key].style.borderColor = 'rgb(280, 0, 90)';
       errMessage.firstElementChild.textContent = `Input ${key}`;
@@ -34,6 +36,12 @@ const onS = (e) => {
       if(form[key].name === 'confirm password' && formData[key] !== '' ) {
         form[key].style.borderColor = 'rgb(280, 0, 90)';
         errMessage.firstElementChild.textContent = 'Passwords didn\'t match';
+        console.log(formData.password);
+        errMessage.hidden = false;
+      }
+      else if(!pattern.test(formData[key]) && key === 'password') {
+        form[key].style.borderColor = 'rgb(280, 0, 90)';
+        errMessage.firstElementChild.textContent = 'Please choose a stronger password. Use 8 characters or more for you password and a mix of letters, numbers';
         errMessage.hidden = false;
       } else {
         errMessage.hidden = 'true';
